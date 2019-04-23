@@ -11,7 +11,7 @@ resource "aws_instance" "jenkins_server" {
     ami                    = "${var.ami}"
     instance_type          = "${var.instance_type}"
     key_name               = "${var.key_name}"
-    user_data              = "${file("$(path.module)/data/docker-jenkins.sh")}"
+    user_data              = "${file("${path.module}/data/docker-jenkins.sh")}"
     vpc_security_group_ids = ["${aws_security_group.jenkins_server_security.id}"]
     tags {
         Name = "${var.jenkins_tag_name}"
@@ -52,15 +52,15 @@ resource "aws_security_group" "jenkins_server_security" {
     ami = "${var.ami}"
     instance_type = "${var.instance_type}"
     key_name = "${var.key_name}"
-    user_data = "${file("$(path.module)/data/docker.sh")}"
-    vpc_security_group_ids = ["${aws_security_group.app_server_security}"]
+    user_data = "${file("${path.module}/data/docker.sh")}"
+    vpc_security_group_ids = ["${aws_security_group.app_server_security.id}"]
     
     tags {
         Name = "${var.app_tag_name}"
     }
 }
     resource "aws_security_group" "app_server_security" {
-    name = "${var.jenkins_tag_name}_security"
+    name = "${var.app_tag_name}_security"
     # acceso web a servidor de aplicaciones
     ingress {
         from_port   = 80
