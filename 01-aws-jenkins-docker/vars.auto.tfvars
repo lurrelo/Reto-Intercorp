@@ -1,0 +1,6 @@
+region              = "us-west-2"
+ami                 = "ami-07f9ebd98e32b6dfd"
+instance_type       = "t2.micro"
+key_name            = "general"
+jenkins_tag_name    = "jenkins_server"
+app_tag_name        = "app_server"
