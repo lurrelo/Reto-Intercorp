@@ -1,0 +1,16 @@
+node {
+    git url: 'https://github.com/lurrelo/application-springboot.git'
+
+}
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Build application') {
+            steps {
+                sh "docker-compose -f docker-build.yml up"
+            }
+        }
+    }
+}

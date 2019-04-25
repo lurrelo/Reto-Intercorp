@@ -1,0 +1,26 @@
+// create hidden parameter : ARTIFACTORY_DIRECTORY = /var/lib/jenkins/workspace/application-build
+// create credentials user/pass with the id dockerhub (docker hub credentials)
+pipeline {
+    agent any
+    stages {
+        stage('Test application') {
+            steps {
+                sh "cd ${params.ARTIFACTORY_DIRECTORY} && docker-compose -f docker-test.yml up"
+            }
+        }
+
+    stage('Build local image') {
+        steps {
+            sh "cd ${params.ARTIFACTORY_DIRECTORY} && chmod +x script/build-image.sh && ./script/build-image.sh"
+        }
+    }
+
+    stage('Publish image') {
+        steps {
+            withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
+                sh "cd ${params.ARTIFACTORY_DIRECTORY} && docker push dockerluisurrelo/application-springboot:latest"
+            }
+        }
+    }    
+    }
+}
