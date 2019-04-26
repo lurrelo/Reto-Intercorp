@@ -32,7 +32,7 @@ http://52.225.217.153:8080/
 
 # 2. Job de Build
 
-#Práctica Build Automation
+# Práctica Build Automation
 
 Pasos para la ejecución
 
@@ -42,18 +42,36 @@ Pasos para la ejecución
 
 # 3. Job de pruebas unitarias
 
+# Práctica CI 
+
   3.1. Job de Jenkins: unit-test
 
 3.2. Se ejecuta si el Job "build-job" acabo bien.
 
   3.2.1. Ejecuta pruebas unitarias
 
-  3.2.2. empaqueta el JAR
+  3.2.2. empaqueta el JAR (Docker)
 
   3.2.3. Deploya el Jar a un docker hub.
 
 # 4 Job de pruebas integrales
 
+# Práctica CI
+
 4.1 git clone https://github.com/lurrelo/application-springboot-test.git
 
-4.2. 
+4.2. Job de Jenkins: integration-test
+
+4.3. Se ejecuta si el Job "unit-test" acabo bien.
+
+4.3.1. A través de newman ejecuta el collection runer (formato JSON) de la API expuesta en el servicio dockerizado (ver ruta mas abajo) y entrega resultados en LOGs.
+
+# 5 Job de Despliegue en Azure Kubernetes Services
+
+# Práctica CD
+
+5.1. Job de Jenkins: deploy-aks
+
+5.2. El servicio expone un método GET en la ruta http://23.101.153.216:8080/
+
+5.3. git clone https://github.com/lurrelo/application-springboot
