@@ -1,5 +1,5 @@
 # Reto-Intercorp
-#1. Desplegar un contenedor de docker de Jenkins.
+# 1. Desplegar un contenedor de docker de Jenkins.
 
 Practicas DevOps aplicadas: IaaC usando Terraform y el provider Azure.
 
@@ -27,16 +27,20 @@ i. Storage Container
 J. Kubernetes Cluster.
 
 Jenkis
+
 http://52.225.217.153:8080/
 
-#2. Job de Build
+# 2. Job de Build
+
 #Práctica Build Automation
+
 Pasos para la ejecución
-2.1. 
-Post-installation setup wizard
 
-    Unlocking Jenkins
+2.1. git clone https://github.com/lurrelo/application-springboot.git
 
-    Customizing Jenkins with plugins
+2.2. Job de Jenkins: build-job
 
-    Creating the first administrator user
+# 3. Job de pruebas unitarias
+
+2.2. Job de Jenkins: unit-test
+2.3. Se ejecuta si el Job "build-job" acabo bien.
