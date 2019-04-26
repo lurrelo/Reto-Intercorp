@@ -1,8 +1,6 @@
 # Reto-Intercorp
 # 1. Desplegar un contenedor de docker de Jenkins.
 
-Practicas DevOps aplicadas: IaaC usando Terraform y el provider Azure.
-
 Pasos para la ejecución
 
 1.1. git clone https://github.com/lurrelo/Reto-Intercorp.git
@@ -32,8 +30,6 @@ http://52.225.217.153:8080/
 
 # 2. Job de Build
 
-# Práctica Build Automation
-
 Pasos para la ejecución
 
 2.1. git clone https://github.com/lurrelo/application-springboot.git
@@ -41,8 +37,6 @@ Pasos para la ejecución
   2.2. Job de Jenkins: build-job
 
 # 3. Job de pruebas unitarias
-
-# Práctica CI 
 
   3.1. Job de Jenkins: unit-test
 
@@ -56,8 +50,6 @@ Pasos para la ejecución
 
 # 4 Job de pruebas integrales
 
-# Práctica CI
-
 4.1 git clone https://github.com/lurrelo/application-springboot-test.git
 
 4.2. Job de Jenkins: integration-test
@@ -67,8 +59,6 @@ Pasos para la ejecución
 4.3.1. A través de newman ejecuta el collection runer (formato JSON) de la API expuesta en el servicio dockerizado (ver ruta mas abajo) y entrega resultados en LOGs.
 
 # 5 Job de Despliegue en Azure Kubernetes Services
-
-# Práctica CD
 
 5.1. Job de Jenkins: deploy-aks
 
