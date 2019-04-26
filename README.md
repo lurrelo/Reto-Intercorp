@@ -12,16 +12,27 @@ Pasos para la ejecución
 1.4. terraform apply -auto-approve
 
 Nota: Se debe contar con credenciales de acceso (Service Principal, Tenant ID, Client ID, Client Secret) para las pruebas de un nuevo despliegue DE infraestructura.
+
 Infraestructura desplegada.
+
 a. Virtual Network
+
 b. Subnet
+
 c. Network Security Group
+
 d. Public IP
+
 e. Network Interface
+
 f. Virtual Machine
+
 g. Virtual Machine extension
+
 h. Storage Account
+
 i. Storage Container
+
 J. Kubernetes Cluster.
 
 Jenkis
