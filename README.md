@@ -38,9 +38,22 @@ Pasos para la ejecución
 
 2.1. git clone https://github.com/lurrelo/application-springboot.git
 
-2.2. Job de Jenkins: build-job
+  2.2. Job de Jenkins: build-job
 
 # 3. Job de pruebas unitarias
 
-2.2. Job de Jenkins: unit-test
-2.3. Se ejecuta si el Job "build-job" acabo bien.
+  3.1. Job de Jenkins: unit-test
+
+3.2. Se ejecuta si el Job "build-job" acabo bien.
+
+  3.2.1. Ejecuta pruebas unitarias
+
+  3.2.2. empaqueta el JAR
+
+  3.2.3. Deploya el Jar a un docker hub.
+
+# 4 Job de pruebas integrales
+
+4.1 git clone https://github.com/lurrelo/application-springboot-test.git
+
+4.2. 
