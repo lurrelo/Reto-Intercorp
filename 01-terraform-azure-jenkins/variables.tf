@@ -14,6 +14,7 @@ variable "tenant_id" {}
 
 # Variables
 
+variable "location_sufix" { default  = "eu2" }
 variable "location" { default  = "East US 2" }
 variable "resource_group_name" { default = "jenkins" }
 variable "vnet_cidr" { default = "192.168.0.0/16" }
@@ -29,3 +30,8 @@ variable "storage_account_name" {}
 variable "container_name" { default = "vhds" }
 variable "vm_name" { default = "Jenkins_VM" }
 variable "os_name" { default = "Ubuntu_Jenkins" }
+variable "admin_username" {default = "ubuntu"}
+
+variable "ssh_public_key" {
+    default = "~/.ssh/id_rsa.pub"
+}

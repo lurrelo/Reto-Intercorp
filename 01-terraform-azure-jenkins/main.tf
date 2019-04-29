@@ -74,7 +74,6 @@ resource "azurerm_virtual_machine" "jenkins" {
   resource_group_name   = "${azurerm_resource_group.terraform_rg.name}"
   network_interface_ids = ["${azurerm_network_interface.public_nic.id}"]
   vm_size               = "${var.vm_size}"
-
   delete_os_disk_on_termination = true
 
   storage_image_reference {
@@ -113,8 +112,8 @@ resource "azurerm_virtual_machine_extension" "jenkins_terraform" {
   type_handler_version = "1.2"
 
   settings = <<SETTINGS
-  {
-          "fileUris": ["https://raw.githubusercontent.com/lurrelo/Reto-Intercorp/master/jenkins-init.sh"],
+  {       
+          "fileUris": ["https://raw.githubusercontent.com/lurrelo/Reto-Intercorp/master/01-terraform-azure-jenkins/jenkins-init.sh"],
           "commandToExecute": "sh jenkins-init.sh"
       }
 SETTINGS
@@ -133,4 +132,32 @@ resource "azurerm_storage_container" "jenkins_cont" {
   resource_group_name 	= "${azurerm_resource_group.terraform_rg.name}"
   storage_account_name 	= "${azurerm_storage_account.jenkins_storage.name}"
   container_access_type = "private"
+}
+
+resource "azurerm_kubernetes_cluster" "k8s" {
+  name                = "aks${var.location_sufix}"
+  location            = "${var.location}"
+  resource_group_name = "${azurerm_resource_group.terraform_rg.name}"
+  dns_prefix          = "aksagent${var.location_sufix}retoIntercorp"
+  linux_profile {
+    admin_username    = "${var.admin_username}"
+    ssh_key {
+      key_data  = "${file(var.ssh_public_key)}"
+    }
+
+  }
+agent_pool_profile {
+  name        = "default"
+  count       = 2
+  vm_size     = "Standard_D2_v2"
+  os_type     = "Linux"
+  os_disk_size_gb = 30
+}
+
+service_principal {
+  client_id   = "${var.client_id}"
+  client_secret = "${var.client_secret}"
+
+}
+
 }
