@@ -39,10 +39,6 @@ J. Kubernetes Cluster.
 
 http://52.167.55.111:8080/
 
-usuario: lurrelo
-
-password: moss2007
-
 # 2. Job de Build
 
 Pasos para la ejecución
