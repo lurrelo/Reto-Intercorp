@@ -37,7 +37,7 @@ J. Kubernetes Cluster.
 
 # Jenkis
 
-http://52.225.217.153:8080/
+http://52.167.55.111:8080/
 
 usuario: lurrelo
 
@@ -77,6 +77,6 @@ Pasos para la ejecución
 
 5.1. Job de Jenkins: deploy-aks
 
-5.2. El servicio expone un método GET en la ruta http://23.101.153.216:8080/
+5.2. El servicio expone un método GET en la ruta http://52.167.49.64:8080/
 
 5.3. git clone https://github.com/lurrelo/application-springboot
